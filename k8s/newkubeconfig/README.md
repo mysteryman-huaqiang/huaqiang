@@ -1,5 +1,5 @@
 # 1. update file openssl.conf
-      you must be sure kubernetes apiserver url in this file
+you must be sure kubernetes apiserver url in this file
 # 2. run command shell
 ```bash
 ./create.sh /etc/kubernetes/ssl/ca.crt /etc/kubernetes/ssl/ca.key test002 https://192.168.100.20:6443 test002
