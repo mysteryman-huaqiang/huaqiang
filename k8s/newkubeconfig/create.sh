@@ -10,11 +10,11 @@ Usage(){
     echo " "
     echo "Usage:        $0  ca_file ca_key_file group apiserver namespace"
     echo " "
-    echo "ca_file:              kubernetes apiserver ca file, see /etc/kubernetes/ssl/ca.crt"
-    echo "ca_key_file:          kubernetes apiserver ca key file, see /etc/kubernetes/ssl/ca.key"
-    echo "group                 group name"
-    echo "apiserver             kubernetes apiserver url e.g: https://192.168.100.3:6443"
-    echo "namespace             kubernetes namespace to grant"
+    echo "ca_file:          kubernetes apiserver ca file, see /etc/kubernetes/ssl/ca.crt"
+    echo "ca_key_file:      kubernetes apiserver ca key file, see /etc/kubernetes/ssl/ca.key"
+    echo "group:            group name"
+    echo "apiserver         kubernetes apiserver url e.g: https://192.168.100.3:6443"
+    echo "namespace         kubernetes namespace to grant"
 }
 
 
@@ -36,23 +36,23 @@ cat>kubeconfig <<EOF
 apiVersion: v1
 clusters:
 - cluster:
-    certificate-authority-data: "${certificate}"
-    server: "${apiserver}"
+    certificate-authority-data: ${certificate}
+    server: ${apiserver}
   name: cluster.local
 contexts:
 - context:
     cluster: cluster.local
-    namespace: "${namespace}"
-    user: "${group}"-cluster.local
-  name: "${group}"
-current-context: "${group}"
+    namespace: ${namespace}
+    user: ${group}-cluster.local
+  name: ${group}
+current-context: ${group}
 kind: Config
 preferences: {}
 users:
-- name: "${group}"-cluster.local
+- name: ${group}-cluster.local
   user:
-    client-certificate-data: "${client}"
-    client-key-data: "${client_key}"
+    client-certificate-data: ${client}
+    client-key-data: ${client_key}
 EOF
 
 cat>role.yaml <<EOF
@@ -63,8 +63,8 @@ metadata:
   annotations:
     rbac.authorization.kubernetes.io/autoupdate: "true"
   labels:
-  namespace: "${namespace}"
-  name: "${group}"
+  namespace: ${namespace}
+  name: ${group}
 rules:
 - apiGroups:
   - '*'
@@ -73,21 +73,21 @@ rules:
   - '*'
 EOF
 
-cat>role.yaml <<EOF
+cat>rolebinding.yaml <<EOF
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   annotations:
     rbac.authorization.kubernetes.io/autoupdate: "true"
-  name: "${group}"
-  namespace: "${namespace}"
+  name: ${group}
+  namespace: ${namespace}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: "${group}"
+  name: ${group}
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
-  name: system:"${group}"
+  name: system:${group}
 EOF
