@@ -1,4 +1,5 @@
 #!/bin/bash
+#author: hqwang
 
 ca_file=$1
 cakey_file=$2
