@@ -14,4 +14,5 @@
  kubectl get pod --kubeconfig kubeconfig
 ```
 
-# ps. you can update namesapce of role.yaml and rolebinding.yaml to add more privilege
+# ps. 
+you can update namesapce of role.yaml and rolebinding.yaml to add more privilege
