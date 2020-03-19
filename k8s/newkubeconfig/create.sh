@@ -69,7 +69,7 @@ metadata:
 rules:
 - apiGroups:
   - '*'
-  resources: ["pods","deployments","secrets","configmaps","statefulsets","services"]
+  resources: ["pods","deployments","secrets","configmaps","statefulsets","services","persistentvolumeclaims"]
   verbs:
   - '*'
 EOF
