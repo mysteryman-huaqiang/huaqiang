@@ -1,5 +1,5 @@
 #!/bin/bash
-kube_version=v1.17.6
+kube_version=v1.18.5
 image_arch=amd64
 etcd_version=v3.3.12
 opt=$1
