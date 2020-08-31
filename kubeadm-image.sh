@@ -6,6 +6,7 @@ a=(
 k8s.gcr.io/pause:3.2
 k8s.gcr.io/etcd:3.4.3-0
 k8s.gcr.io/coredns:1.6.7
+gcr.io/google-containers/kube-proxy:1.18.6
 )
 
 Usage(){
@@ -30,4 +31,8 @@ push_image(){
     done
 }
 
-$1
+if [[ "$1" == "all" ]]; then
+docker login --username=ithuaqiang@163.com --password whq8273080 registry.cn-qingdao.aliyuncs.com
+pull_image
+push_image
+fi
