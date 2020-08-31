@@ -6,7 +6,7 @@ a=(
 k8s.gcr.io/pause:3.2
 k8s.gcr.io/etcd:3.4.3-0
 k8s.gcr.io/coredns:1.6.7
-gcr.io/google-containers/kube-proxy:1.18.6
+gcr.io/google-containers/kube-proxy:1.18.2
 )
 
 Usage(){
