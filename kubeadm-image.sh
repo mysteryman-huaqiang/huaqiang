@@ -25,7 +25,7 @@ pull_image(){
 push_image(){
   for i in ${a[*]}
     do
-        image=`echo $i|awk -F'/' '{print $2}'`
+        image=`echo $i|awk -F'/' '{print $NF}'`
         docker tag $i $ali_registry/$image
         docker push $ali_registry/$image
     done
