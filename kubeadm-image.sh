@@ -3,6 +3,7 @@
 ali_registry="registry.cn-qingdao.aliyuncs.com/huaqiangk8s"
 
 a=(
+k8s.gcr.io/k8s-dns-node-cache:1.15.13
 k8s.gcr.io/kube-apiserver:v1.18.9
 k8s.gcr.io/kube-controller-manager:v1.18.9
 k8s.gcr.io/kube-scheduler:v1.18.9
