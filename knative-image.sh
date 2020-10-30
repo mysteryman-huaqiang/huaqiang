@@ -36,6 +36,7 @@ push_image(){
           docker tag $i $ali_registry/$image:$tag
           docker push $ali_registry/$image:$tag
       done
+  fi
 }
 
 if [[ "$1" == "all" ]]; then
