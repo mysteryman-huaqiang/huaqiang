@@ -29,7 +29,7 @@ push_image(){
           docker push $ali_registry/$image
       done
   else
-    tag = $1
+    tag=$1
     for i in ${a[*]}
       do
           image=`echo $i|awk -F'/' '{print $NF}'|awk -F'@' '{print $1}'`
