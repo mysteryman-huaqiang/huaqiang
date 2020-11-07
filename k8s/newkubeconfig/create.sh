@@ -33,7 +33,16 @@ certificate=`cat $ca_file |base64 |tr -d "\n"`
 client=`cat  client.pem|base64 |tr -d "\n"`
 client_key=`cat  client-key.pem|base64 |tr -d "\n"`
 
-cat>kubeconfig <<EOF
+if [[ ! -d $namespace ]];then
+    mkdir $namespace
+else
+    echo $namespace is exist
+    exit
+fi
+
+rm -rf client-key.pem client.csr client.pem
+
+cat>./$namespace/kubeconfig <<EOF
 apiVersion: v1
 clusters:
 - cluster:
@@ -56,7 +65,7 @@ users:
     client-key-data: ${client_key}
 EOF
 
-cat>role.yaml <<EOF
+cat>./$namespace/role.yaml <<EOF
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -74,7 +83,7 @@ rules:
   - '*'
 EOF
 
-cat>rolebinding.yaml <<EOF
+cat>./$namespace/rolebinding.yaml <<EOF
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
