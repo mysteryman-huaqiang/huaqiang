@@ -3,13 +3,15 @@
 ali_registry="registry.cn-qingdao.aliyuncs.com/huaqiangk8s"
 
 a=(
-gcr.io/knative-releases/knative.dev/net-istio/cmd/controller@sha256:49bb4cb2224b6d41d07f2259753fd89e8a440cd7bb81eee190faff1e817e7eb9
-gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook@sha256:e0b6d3928e6b731f21ca17db2ab9020b42850ce6427fedc4bcb728389ce20ee8
-gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:69065cec1c1d57d1b16eb448c1abd895c2c554ef0ec19bedd1c14dc3150d2ff1
-gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:bc1f5dc5594e880dcb126336d8344f0a87cf22075ef32eebd3280e6548ef22ef
-gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:8b2b5d06ab5b3bbbe0f40393b3e39f6aceb80542d5cfbab97e89758b59b5ef6e
-gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:0db974f58b48b219ab8047e11b481c2bbda52b7a2d54db5ed58e8659748ec125
-gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:e65e11bc8711ed619b346f0385de4d266f59dccf0781fe41a416559b85d414ed
+k8s.gcr.io/k8s-dns-node-cache:1.16.0
+k8s.gcr.io/kube-apiserver:v1.19.7
+k8s.gcr.io/kube-controller-manager:v1.19.7
+k8s.gcr.io/kube-scheduler:v1.19.7
+k8s.gcr.io/kube-proxy:v1.19.7
+k8s.gcr.io/pause:3.3
+k8s.gcr.io/etcd:v3.4.13
+k8s.gcr.io/coredns:1.7.0
+k8s.gcr.io/cluster-proportional-autoscaler-amd64:1.8.3
 )
 
 Usage(){
